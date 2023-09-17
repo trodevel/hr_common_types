@@ -21,10 +21,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from enum import Enum
-from externals.languages.languages import Language
-from externals.currencies.currencies import Currency
+from languages.python.languages import Language
 from typing import Optional
-from generic_str_helpers import optional_to_str
 
 ##########################################################
 
@@ -65,33 +63,5 @@ class LanguageWithLevel:
 
     def __str__(self):
         return str( self.language ) + ";" + str( self.level )
-
-class RangeInt:
-    value_from: Optional[int]     = None
-    value_to:   Optional[int]     = None
-
-    def __init__( self, value_from, value_to ):
-        self.value_from     = value_from
-        self.value_to       = value_to
-
-    def __str__(self):
-        return optional_to_str( self.value_from ) + ";" + optional_to_str( self.value_to )
-
-
-class RangeFloat:
-    value_from: Optional[float]   = None
-    value_to:   Optional[float]   = None
-
-class Salary:
-    salary: RangeInt          = None
-    currency: Currency        = None
-
-    def __init__( self, salary, currency ):
-        self.salary     = salary
-        self.currency   = currency
-
-    def __str__(self):
-        return optional_to_str( self.salary ) + ";" + optional_to_str( self.currency )
-
 
 ##########################################################
