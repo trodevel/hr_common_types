@@ -23,6 +23,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 from enum import Enum
 from languages.python.languages import Language
 from typing import Optional
+from pydantic.dataclasses import dataclass
 
 ##########################################################
 
@@ -58,6 +59,7 @@ class LanguageLevel(int, Enum):
     advanced = 3
     native = 4
 
+@dataclass
 class LanguageWithLevel:
     language: Language        = None
     level: LanguageLevel      = None
