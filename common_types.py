@@ -71,4 +71,13 @@ class LanguageWithLevel:
     def __str__(self):
         return str( self.language ) + ";" + str( self.level )
 
+@dataclass
+class ContactType(int, Enum):
+    UNDEF = 0
+    EMAIL = 1
+    PHONE = 2
+    WHATSAPP = 3
+    TELEGRAM = 4
+    SKYPE = 5
+
 ##########################################################
