@@ -26,6 +26,11 @@ from typing import Optional
 
 ##########################################################
 
+class Gender(int, Enum):
+    male = 1
+    female = 2
+    other = 3
+
 class JobFormat(int, Enum):
     UNDEF = 0
     OFFICE_ONLY = 1
