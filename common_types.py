@@ -32,7 +32,7 @@ class Gender(int, Enum):
     female = 2
     other = 3
 
-class JobFormat(int, Enum):
+class OfficePresenceType(int, Enum):
     UNDEF = 0
     OFFICE_ONLY = 1
     OFFICE_AND_REMOTE = 2
