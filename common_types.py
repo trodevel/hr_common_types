@@ -28,6 +28,7 @@ from pydantic.dataclasses import dataclass
 ##########################################################
 
 class Gender(int, Enum):
+    undef = 0
     male = 1
     female = 2
     other = 3
