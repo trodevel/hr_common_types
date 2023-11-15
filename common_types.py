@@ -60,6 +60,11 @@ class LanguageLevel(int, Enum):
     advanced = 3
     native = 4
 
+class JobSearchStatus(int, Enum):
+    not_looking = 0
+    passively_looking = 1
+    actively_looking = 2
+
 @dataclass
 class LanguageWithLevel:
     language: Language        = None
