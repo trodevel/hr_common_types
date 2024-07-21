@@ -21,14 +21,19 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from enum import Enum
-from externals.languages.languages import Language
-from externals.currencies.currencies import Currency
+from languages.python.languages import Language
 from typing import Optional
-from generic_str_helpers import optional_to_str
+from pydantic.dataclasses import dataclass
 
 ##########################################################
 
-class JobFormat(int, Enum):
+class Gender(int, Enum):
+    undef = 0
+    male = 1
+    female = 2
+    other = 3
+
+class OfficePresenceType(int, Enum):
     UNDEF = 0
     OFFICE_ONLY = 1
     OFFICE_AND_REMOTE = 2
@@ -55,6 +60,12 @@ class LanguageLevel(int, Enum):
     advanced = 3
     native = 4
 
+class JobSearchStatus(int, Enum):
+    not_looking = 0
+    passively_looking = 1
+    actively_looking = 2
+
+@dataclass
 class LanguageWithLevel:
     language: Language        = None
     level: LanguageLevel      = None
@@ -66,32 +77,13 @@ class LanguageWithLevel:
     def __str__(self):
         return str( self.language ) + ";" + str( self.level )
 
-class RangeInt:
-    value_from: Optional[int]     = None
-    value_to:   Optional[int]     = None
-
-    def __init__( self, value_from, value_to ):
-        self.value_from     = value_from
-        self.value_to       = value_to
-
-    def __str__(self):
-        return optional_to_str( self.value_from ) + ";" + optional_to_str( self.value_to )
-
-
-class RangeFloat:
-    value_from: Optional[float]   = None
-    value_to:   Optional[float]   = None
-
-class Salary:
-    salary: RangeInt          = None
-    currency: Currency        = None
-
-    def __init__( self, salary, currency ):
-        self.salary     = salary
-        self.currency   = currency
-
-    def __str__(self):
-        return optional_to_str( self.salary ) + ";" + optional_to_str( self.currency )
-
+@dataclass
+class ContactType(int, Enum):
+    UNDEF = 0
+    EMAIL = 1
+    PHONE = 2
+    WHATSAPP = 3
+    TELEGRAM = 4
+    SKYPE = 5
 
 ##########################################################
